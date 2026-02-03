@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #000000 0%, #190130 100%);
+  font-family: "Arial", sans-serif;
+}
+
+.container {
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1001;
+}
+
+.image-container {
+  margin-bottom: 30px;
+}
+
+.image-container video {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.buttons-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#btnNo {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 12px 30px;
+}
+
+#btnNo:hover:not(:disabled) {
+  background-color: #ff5252;
+  transform: scale(1.05);
+}
+
+#btnNo:disabled {
+  background-color: #ff6b6b;
+  cursor: pointer;
+  opacity: 1;
+}
+
+#btnSi {
+  background-color: #51cf66;
+  color: white;
+  padding: 12px 30px;
+  font-size: 18px;
+}
+
+#btnSi:hover {
+  background-color: #40c057;
+}
+
+#btnSi.growing {
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.message {
+  margin-top: 30px;
+  font-size: 24px;
+  color: #ff0814;
+  font-weight: bold;
+  display: none;
+  animation: fadeIn 0.5s ease;
+  position: relative;
+  z-index: 2000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message.show {
+  display: block;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .image-container video {
+    width: 200px;
+    height: 200px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  #btnNo {
+    padding: 10px 20px;
+  }
+
+  #btnSi {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .image-container video {
+    width: 150px;
+    height: 150px;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .buttons-container {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  #btnNo {
+    padding: 8px 15px;
+  }
+
+  #btnSi {
+    padding: 8px 15px;
+  }
+
+  .message {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+}
